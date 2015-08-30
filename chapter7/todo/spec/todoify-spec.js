@@ -58,6 +58,17 @@ describe('todoify',function(){
 			 expect($('#todo-container').find('.todo').length).toBe(1);
 			 expect($('#todo-container').find('.todo').text()).toBe('new item');		
 
+		})
+
+		it('should be able add new item to list has items',function(){
+			$('input').todoify({
+				data:['one-item'],
+				to:'#todo-container'
+			})
+			expect($('#todo-container').find('.todo').length).toBe(1);
+			$('input').val('new item').pressEnter();
+			expect($('#todo-container').find('.todo').length).toBe(2);
+
 		})	
 	})
 
